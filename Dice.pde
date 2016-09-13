@@ -1,4 +1,6 @@
 Die thefirst;
+int Topping = 20;
+int numSum = 0;
 void setup()
 {
 	noLoop();
@@ -14,7 +16,17 @@ void draw()
 			thefirst.show();
 			thefirst.roll();
 		}
-	}	
+	}
+	//sum of toppings
+	if (thefirst.numDots<7){
+		numSum = numSum+thefirst.numDots;
+	}
+	//text
+	fill(0);
+	textSize(35);
+	text("Amount of toppings used:" + numSum, 10,570,200);
+
+
 }
 void mousePressed()
 {
@@ -35,32 +47,43 @@ class Die //models one single dice cube
 	void roll()
 	{
 		fill(250,50,50);
+		noStroke();
 		if(numDots == 1){
 
-			ellipse(pizzaX,pizzaY,30,30);
+			ellipse(pizzaX,pizzaY,Topping,Topping);
 		}
 		else if(numDots == 2 ){
 
-			ellipse(pizzaX,pizzaY,30,30);
+			ellipse(pizzaX-12,pizzaY-12,Topping,Topping);
+			ellipse(pizzaX+12,pizzaY+12,Topping,Topping);
+
 		}
 		else if(numDots == 3){
 
-			ellipse(pizzaX,pizzaY,30,30);
+			ellipse(pizzaX,pizzaY-15,Topping,Topping);
+			ellipse(pizzaX-15,pizzaY+15,Topping,Topping);
+			ellipse(pizzaX+15,pizzaY+15,Topping,Topping);
 		}
 		else if(numDots == 4){
-
-
-			ellipse(pizzaX,pizzaY,30,30);
+			ellipse(pizzaX-15,pizzaY-15,Topping,Topping);
+			ellipse(pizzaX-15,pizzaY+15,Topping,Topping);
+			ellipse(pizzaX+15,pizzaY-15,Topping,Topping);
+			ellipse(pizzaX+15,pizzaY+15,Topping,Topping);
 		}
 		else if (numDots == 5){
-
-
-			ellipse(pizzaX,pizzaY,30,30);
+			ellipse(pizzaX,pizzaY-22,Topping,Topping);
+			ellipse(pizzaX-20,pizzaY-3,Topping,Topping);
+			ellipse(pizzaX-13,pizzaY+22,Topping,Topping);
+			ellipse(pizzaX+20,pizzaY-3,Topping,Topping);
+			ellipse(pizzaX+13,pizzaY+22,Topping,Topping);
 		}
 		else {
-
-
-			ellipse(pizzaX,pizzaY,30,30);
+			ellipse(pizzaX-13,pizzaY-22,Topping,Topping);
+			ellipse(pizzaX+13,pizzaY-22,Topping,Topping);
+			ellipse(pizzaX-27,pizzaY,Topping,Topping);
+			ellipse(pizzaX+27,pizzaY,Topping,Topping);
+			ellipse(pizzaX-13,pizzaY+22,Topping,Topping);
+			ellipse(pizzaX+13,pizzaY+22,Topping,Topping);
 		}
 	}
 
